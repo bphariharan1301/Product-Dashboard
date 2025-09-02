@@ -1,3 +1,4 @@
+
 # WeeCom Dashboard - Next.js
 
 `Note: This is an experimental and learning project developed to under the underlying concepts of States and shadcn/ui. This is prototype which I will using it for my E-Commerce application Shopzy`
