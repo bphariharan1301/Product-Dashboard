@@ -1,36 +1,140 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WeeCom Dashboard - Next.js
 
-## Getting Started
+`Note: This is an experimental and learning project developed to under the underlying concepts of States and shadcn/ui. This is prototype which I will using it for my E-Commerce application Shopzy`
 
-First, run the development server:
+## Introduction
+
+A modern, responsive product management dashboard built with Next.js, featuring CRUD operations, advanced pagination, search, and category filtering.
+
+## 🚀 Setup Instructions
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn or any package manager of your choice
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   cd weecom-dashboard-nextjs
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Run the development server**
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the application.
+
+### Build for Production
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📚 Libraries Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Core Framework
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js 15.5.2** - React framework with App Router for modern web applications
+- **React 19.1.0** - UI library for building component-based interfaces
+- **TypeScript** - Type-safe JavaScript development
 
-## Learn More
+### UI Components & Styling
 
-To learn more about Next.js, take a look at the following resources:
+- **shadcn/ui** - UI Component framework similar to MUI.
+- **Tailwind CSS** - Utility-first CSS framework
+- **Lucide React** - Beautiful, customizable SVG icons (Tried this to have alternate to MUI Icons and Google Icons)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Data Management
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **TanStack Query** - Data synchronization for React
+- **DummyJSON API** - Mock REST API for product data (Used to showcase the state and working of the app with the API connected)
 
-## Deploy on Vercel
+### Form Management
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **React Hook Form** - Performant forms with minimal re-renders
+- **Zod** - TypeScript-first schema validation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🏗️ Approach
+
+### Design
+
+This dashboard follows modern React patterns with a focus on **performance**, **accessibility**, and **user experience**. The approach was to keep the components in one place and use it wherever needed. The implementation of shadcn/ui turned out to be difficult due to my 1st instance of using a component library. So, I had to refer to the documentation frequently and experiment with different approaches to achieve the desired functionality. The output of those are visible with the Table, Dialog and form components structure along with a collapsible sidebar.
+
+### Key Features Implementation
+
+#### 1. **Responsive Sidebar Layout**
+
+- Collapsible sidebar using shadcn/ui components
+- Mobile-responsive design with overlay behavior
+
+#### 2. **Data Management**
+
+- **TanStack Query** for server state management
+- Mutation-driven data updates with automatic invalidation
+- Loading states with artificial delays (`?delay=1000`) for demo purposes
+
+#### 3. **Comprehensive Product Table**
+
+- **Pagination**: Dynamic page numbers with ellipsis for large datasets
+- **Search**: Real-time product search with debounced queries
+- **Category Filtering**: Dropdown filter integration with API endpoints
+- **CRUD Operations**: Create, read, update, and delete products
+
+#### 4. **Form Management**
+
+- **Dialogs**: Forms for adding/editing products
+- **State Management**: Form state with validation
+- **UI/UX Focus**: Immediate dialog closure on successful submission and intentional delay to mock up state and table refresh
+- **Editing Mock Up**: Auto-populate forms with existing product data
+
+### Component Structure
+
+```
+src/
+├── components/
+│   ├── ProductTable.tsx     # Main table with pagination & filters (Both text and category search)
+│   ├── ProductForm.tsx      # Add/Edit dialog
+│   ├── layout/              # Sidebar and dashboard components
+│   └── ui/                  # Reusable shadcn/ui components generate from shadcn CLI
+├── hooks/
+│   └── useProducts.ts       # TanStack Query hooks
+│   └── use-mobile.ts       # Shadcn generate hook
+├── lib/
+│   ├── api.ts              # API layer with DummyJSON
+│   └── utils.ts            # Utils need for shadcn and generate by shadcn CLI
+└── app/                    # Next.js App Router pages
+```
+
+### API Integration
+
+- **DummyJSON REST API** for realistic product data
+- Support for pagination, search, and category filtering
+- Proper error handling and loading states.
+
+## 🎯 Overall Key Features
+
+- ✅ **Responsive Design** - Works seamlessly on desktop, tablet, and mobile
+- ✅ **Real-time Search** - Instant product filtering as you type
+- ✅ **Category Filtering** - Filter products by category with dropdown
+- ✅ **Advanced Pagination** - Smart pagination with ellipsis for large datasets
+- ✅ **CRUD Operations** - Complete product management (Create, Read, Update, Delete)
+- ✅ **Loading States** - Skeleton loaders and proper loading indicators
+- ✅ **Form Validation** - Client-side validation with error handling
