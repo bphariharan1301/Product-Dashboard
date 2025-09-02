@@ -208,9 +208,9 @@ export default function ProductTable() {
 	return (
 		<Card>
 			<CardHeader>
-				<div className="flex items-center justify-between">
+				<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 					<CardTitle>Products</CardTitle>
-					<div className="flex items-center gap-2">
+					<div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-2">
 						<Select
 							onValueChange={(value) => {
 								// console.log("value", value);
@@ -218,7 +218,7 @@ export default function ProductTable() {
 							}}
 							value={selectedCategory}
 						>
-							<SelectTrigger className="w-[180px]">
+							<SelectTrigger className="w-full sm:w-[180px]">
 								<SelectValue placeholder="All categories" />
 							</SelectTrigger>
 							<SelectContent>
@@ -235,7 +235,7 @@ export default function ProductTable() {
 						<div className="relative">
 							<Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
 							<Input
-								className="pl-10 w-64"
+								className="pl-10 w-full sm:w-64"
 								placeholder="Search products..."
 								value={search}
 								onChange={(e) => {
@@ -246,7 +246,7 @@ export default function ProductTable() {
 						</div>
 						<ProductForm
 							trigger={
-								<Button>
+								<Button className="w-full sm:w-auto">
 									<Plus className="h-4 w-4 mr-2" />
 									Add Product
 								</Button>
