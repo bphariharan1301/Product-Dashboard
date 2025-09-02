@@ -177,7 +177,7 @@ export default function ProductTable() {
 	}, [data]);
 
 	useEffect(() => {
-		let timer: ReturnType<typeof setTimeout> | null = null;
+		const timer: ReturnType<typeof setTimeout> | null = null;
 
 		if (isLoading) {
 			setLocalLoading(true);
